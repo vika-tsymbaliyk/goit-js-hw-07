@@ -4,8 +4,6 @@ import { galleryItems } from './gallery-items.js';
 const list = document.querySelector('.gallery');
 const listContent = generateGalleryList(galleryItems);
 
-list.insertAdjacentHTML("beforeend", listContent);
-
 function generateGalleryList(galleryItems) {
     return galleryItems.flatMap((image) => 
     `<li class="gallery__item">
@@ -19,4 +17,11 @@ function generateGalleryList(galleryItems) {
 </li>`)
   .join("");
 }
+list.insertAdjacentHTML("beforeend", listContent);
 
+const gallery = new SimpleLightbox('.gallery a', { 
+    overlay: true,
+    overlayOpacity: 0.8,
+    captionsData: `alt`,
+    captionDelay: 250,
+});;

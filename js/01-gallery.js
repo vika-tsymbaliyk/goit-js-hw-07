@@ -34,6 +34,7 @@ function onImageClick(event) {
     list.addEventListener("keydown", (eve) => {
         if (eve.code === "Escape") {
             instance.close();
+            document.removeEventListener('keydown', closeHandler);
         }
     }
     )
@@ -44,7 +45,7 @@ function onImageClick(event) {
     list.removeEventListener('keydown', closeHandler);
   };
 
+}
+ 
 
-
- }
 list.addEventListener("click", onImageClick)
