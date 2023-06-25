@@ -8,7 +8,7 @@ list.insertAdjacentHTML("beforeend", listContent);
 
 function generateGalleryList(galleryItems) {
     return galleryItems.flatMap((image) => `<li class="gallery__item">
-  <a class="gallery__link" href="large-image.jpg">
+  <a class="gallery__link" href="${image.original}">
     <img
       class="gallery__image"
       src=${image.preview}
@@ -38,6 +38,11 @@ function onImageClick(event) {
     }
     )
     
+    const closeHandler = () => {
+    instance.close();
+    list.removeEventListener('click', onImageClick);
+    list.removeEventListener('keydown', closeHandler);
+  };
 
 
 
