@@ -20,12 +20,26 @@ function generateGalleryList(galleryItems) {
   .join("");
 }
 
-function imageGetUrl(event) {
+function onImageClick(event) {
     event.preventDefault();
    
     if (!event.target.classList.contains('gallery__image')) {
         return
     };
     const largeImageUrl = event.target.dataset.source;
+
+    const instance = basicLightbox.create(`<img src="${largeImageUrl}" width="1400" height="900">`);
+    instance.show();
+
+    list.addEventListener("keydown", (eve) => {
+        if (eve.code === "Escape") {
+            instance.close();
+        }
+    }
+    )
+    
+
+
+
  }
-list.addEventListener("click", imageGetUrl)
+list.addEventListener("click", onImageClick)
