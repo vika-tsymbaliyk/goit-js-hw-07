@@ -19,3 +19,13 @@ function generateGalleryList(galleryItems) {
 </li>`)
   .join("");
 }
+
+function imageGetUrl(event) {
+    event.preventDefault();
+   
+    if (!event.target.classList.contains('gallery__image')) {
+        return
+    };
+    const largeImageUrl = event.target.dataset.source;
+ }
+list.addEventListener("click", imageGetUrl)
